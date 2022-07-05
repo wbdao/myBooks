@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+/* Home Page */
+/* Topbar */
+.topbar{
+  padding: 10px;
+  text-align: center;
+  background: green;
+  color: #fff;
+}
+.bookstatus{
+  padding: 20px;
+}
+/* add book buuton */
+.add-book{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background:teal;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+/* books-container */
+.books-container{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.book{
+  width: 200px;
+}
+.sub{
+  position: relative;
+}
+.book .img{
+  width: 100%;
+  box-shadow: 0px 5px 6px 2px #ccc;
+}
+/* Dropdwon */
+.dropdown{
+  position: absolute;
+  bottom: 0 ;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /* overflow: hidden; */
+  background: teal;
+  cursor: pointer;
+}
+.sub-menu{
+  position: absolute;
+  top: -84px;
+  right: 57px;
+  min-width: 200px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: #eee;
+  cursor: pointer;
+  border: 1px solid #333;
+}
+.status{
+  display: flex;
+  gap: 10px;
+}
+.status input{
+  display: none;
+}
+.status label{
+  padding-left: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+.status input:checked + label{
+  background-color: blue;
+  color: #fff;
+}
+.status input:checked + label::after{
+  content: '✔';
+  position: absolute;
+  left: 0;
+}
+
+.move{
+  color: #888;
+  padding: 10px 0 0 15px;
+}
+/* Search Page */
+.search-bar{
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  box-shadow: -1px 2px 3px 5px #eee;
+}
+.search-bar > input{
+  width: 100%;
+  border: 0;
+  padding: 10px;
+  outline: none;
+  font-size: 16px;
+}

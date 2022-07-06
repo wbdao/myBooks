@@ -6,6 +6,7 @@ import Book from "../component/Book";
 const Search = () => {
   const [search, setSearch] = useState("");
   const [books, setBooks] = useState([]);
+  
   useEffect(() => {
     const searchBook = async () => {
       try {
@@ -16,7 +17,7 @@ const Search = () => {
       }
     };
     search && searchBook();
-  }, [search]);
+  }, [search]);  
   return (
     <div>
       <div className="search-books-bar">
@@ -27,18 +28,25 @@ const Search = () => {
           <input
             type="text"
             placeholder="Search by title, author, or ISBN"
-            onChange={(e) => setSearch(e.target.value)}
+            onKeyUp={(e) => setSearch(e.target.value)}
           />
         </div>
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-          {books.error ? (
-            <h1>Not Found</h1>
+          {books.error || search==="" ? (
+            <h1>Not Results</h1>
           ) : (
             books &&
             books.map((book) => {
-              return <Book book={book && book} key={book && book.id} />;
+              const mybooks=JSON.stringify('myBooks')?JSON.parse(localStorage.getItem('myBooks')):[];
+              const cuBook= mybooks[mybooks.findIndex((id)=>id.id===book.id)]
+              if(cuBook){
+                return <Book book={cuBook && cuBook} key={book && book.id}/>;
+              }else{
+                return <Book book={book && book} key={book && book.id}/>;
+
+              }
             })
           )}
         </ol>
